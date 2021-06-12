@@ -1,5 +1,6 @@
 package com.projeto_Web.Projeto_WebService.resources;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,27 +10,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projeto_Web.Projeto_WebService.entities.User;
-import com.projeto_Web.Projeto_WebService.services.UserService;
+import com.projeto_Web.Projeto_WebService.entities.Order;
+import com.projeto_Web.Projeto_WebService.services.OrderService;
 
 @RestController
-@RequestMapping(value="/users")
-public class UserResource {
+@RequestMapping(value="/orders")
+public class OrderResource {
 	
 	@Autowired
-	private UserService service;
+	private OrderService service;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User>list= service.findAll();
+	public ResponseEntity<List<Order>> findAll(){
+		List<Order>list= service.findAll();
 		return ResponseEntity.ok(list);
 		
 	}
 	
 	@GetMapping(value="/{id}")
-	public ResponseEntity<User>findByid(@PathVariable Long id){
-		User obj=service.findBydId(id);
-		return ResponseEntity.ok().body(obj);
+	public ResponseEntity<Order>findByid(@PathVariable Long id){
+		Order obj=service.findByndId(id);
+		return ResponseEntity.ok(obj);
 	}
 
 }
