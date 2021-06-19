@@ -6,4 +6,7 @@ import com.projeto_Web.Projeto_WebService.entities.User;
 
 public interface UserRepository  extends JpaRepository<User,Long>{
 
+	
+
+	
 }
